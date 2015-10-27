@@ -17,15 +17,17 @@ $doctype 5
             <tr>
               <th>Rank
               <th>User
+              $forall pid <- mkProblemList st
+                <th class="color#{pid}">#{pid}
               <th>Score
-              <th>Penalty
 
           $forall p <- st
             <tbody>
               <tr>
-                <td><a class="white" href="#{userPage cid p}">#{show $ rank p}
-                <td>#{userName p}
-                <td>#{score p}
-                <td>#{penalty p}
+                <td>#{show $ rank p}
+                <td><a class="white" href="#{userPage cid p}">#{userName p}
+                $forall (color, s, t) <- map showTask (tasks p)
+                  <th class="#{color}">#{s}<br>#{t}
+                <td class="stRV">#{showScore p}<br>#{showTime $ read $ penalty p}
 
   <address class="footer">contributed by asi1024 (2015)

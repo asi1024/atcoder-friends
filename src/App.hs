@@ -16,17 +16,11 @@ import Web.Scotty
 
 import Fetch
 import Parse
+import Util
 import Url
 
 friends :: [String]
-friends = []
-
-showPerson :: Person -> String
-showPerson p = show (rank p) ++ "\t" ++ userName p ++ "\t" ++ score p
-
-showFriends :: [Person] -> String
-showFriends ps = unlines $ map showPerson $ filter isFriend ps
-  where isFriend p = userName p `elem` friends
+friends = [] -- please input your friends
 
 app :: IO()
 app = do
@@ -42,4 +36,5 @@ app = do
       let st = case getJsonStr str >>= parseJson of
                  Just dat -> filter (\x -> userName x `elem` friends) dat
                  Nothing  -> []
+      liftIO $ print st
       html $ renderHtml $ $(hamletFile "./template/standings.hamlet") undefined
