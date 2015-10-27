@@ -8,12 +8,11 @@ import Network
 
 import Text.Regex (mkRegex, matchRegexAll)
 
-getUrl :: String -> String
-getUrl s = "https://" ++ s ++ ".contest.atcoder.jp/standings"
+import Url
 
 fetch :: String -> IO ByteString
 fetch cid = withSocketsDo $ do
-  request' <- parseUrl $ getUrl cid
+  request' <- parseUrl $ standingsUrl cid
   let request = request' { checkStatus = \_ _ _ -> Nothing }
   manager <- newManager tlsManagerSettings
   res <- httpLbs request manager

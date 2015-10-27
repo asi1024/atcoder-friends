@@ -1,0 +1,13 @@
+$doctype 5
+  <html lang="ja">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta http-equiv="Content-Style-Type" content="text/css">
+      <link rel="stylesheet" href="./css/default.css" type="text/css">
+
+      <title>atcoder-friends
+    <body>
+      <div class="header">
+        <h1 id="logo">AtCoder Friends
+
+  <address class="footer">contributed by asi1024 (2015)
