@@ -3,12 +3,23 @@ module App where
 import Data.Maybe (fromJust)
 
 import Fetch
+import Parse
 
-getUrl :: String -> String
-getUrl s = "https://" ++ s ++ ".contest.atcoder.jp/standings"
+friends :: [String]
+friends = []
+
+showPerson :: Person -> String
+showPerson p = show (rank p) ++ "\t" ++ userName p ++ "\t" ++ score p
+
+showFriends :: [Person] -> String
+showFriends ps = unlines $ map showPerson $ filter isFriend ps
+  where isFriend p = userName p `elem` friends
 
 app :: IO()
 app = do
   str <- getLine
-  res <- fetch $ getUrl str
-  putStrLn $ fromJust $ getJsonStr res
+  res <- fetch str
+  let jsonstr = fromJust $ getJsonStr res
+  putStrLn jsonstr
+  let out = fromJust $ parseJson jsonstr
+  putStrLn $ showFriends out
