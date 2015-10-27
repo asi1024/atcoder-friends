@@ -9,13 +9,20 @@ library
   hs-source-dirs: src
   default-Language: Haskell2010
   build-depends: base >= 4 && < 5
+               , bytestring == 0.10.4.0
+               , conduit == 1.2.0.2
+               , http-conduit == 2.1.8
+               , network == 2.6.2.1
+               , regex-compat == 0.95.1
   exposed-modules:
     App
+    Fetch
   ghc-options: -Wall -fno-warn-orphans
 
 executable main
-  Hs-source-dirs: src
+  hs-source-dirs: src-exec
   Default-Language: Haskell2010
   main-is:  Main.hs
   build-depends: base >= 4 && < 5
+               , atcoder-friends
   ghc-options: -Wall
