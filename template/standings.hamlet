@@ -25,7 +25,7 @@ $doctype 5
             <tbody>
               <tr>
                 <td>#{show $ rank p}
-                <td><a class="white" href="#{userPage cid p}">#{userName p}
+                <td><a class="white" href="#{userPage cid p}">#{userScreenName p}
                 $forall (color, s, t) <- map showTask (tasks p)
                   <th class="#{color}">#{s}<br>#{t}
                 <td class="stRV">#{showScore p}<br>#{showTime $ read $ penalty p}

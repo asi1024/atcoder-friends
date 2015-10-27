@@ -20,7 +20,7 @@ import Util
 import Url
 
 friends :: [String]
-friends = [] -- please input your friends
+friends = ["asi1024"] -- please input your friends
 
 app :: IO()
 app = do
@@ -34,7 +34,6 @@ app = do
       cid <- param "cid" :: ActionM String
       str <- liftIO (fetch cid) :: ActionM ByteString
       let st = case getJsonStr str >>= parseJson of
-                 Just dat -> filter (\x -> userName x `elem` friends) dat
+                 Just dat -> filter (\x -> userScreenName x `elem` friends) dat
                  Nothing  -> []
-      liftIO $ print st
       html $ renderHtml $ $(hamletFile "./template/standings.hamlet") undefined
