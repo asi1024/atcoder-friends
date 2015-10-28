@@ -1,5 +1,7 @@
-# atcoder-friends
+# atcoder-friends [![Build Status](https://travis-ci.org/asi1024/atcoder-friends.svg?branch=master)](https://travis-ci.org/asi1024/atcoder-friends)
 firends-standings of atcoder
+
+## Setup
 
 ```
 $ git clone git://github.com/asi1024/atcoder-friends.git
