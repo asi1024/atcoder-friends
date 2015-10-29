@@ -21,8 +21,8 @@ $doctype 5
                 <th class="color#{pid}">#{pid}
               <th>Score
 
-          $forall p <- st
-            <tbody>
+          <tbody>
+            $forall p <- st
               <tr>
                 <td>#{show $ rank p}
                 <td><a class="white" href="#{userPage cid p}">#{userScreenName p}
