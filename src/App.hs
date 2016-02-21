@@ -35,5 +35,5 @@ app = do
       str <- liftIO (fetch cid) :: ActionM ByteString
       let st = case getJsonStr str >>= parseJson of
                  Just dat -> filter (\x -> userScreenName x `elem` friends) dat
-                 Nothing  -> []
+                 Nothing  -> error "Contest doesn't exist"
       html $ renderHtml $ $(hamletFile "./template/standings.hamlet") undefined
