@@ -9,20 +9,20 @@ library
   hs-source-dirs: src
   default-Language: Haskell2010
   build-depends: base >= 4 && < 5
-               , aeson        == 0.10.0.0
+               , aeson        == 0.11.0.0
                , blaze-html   == 0.8.1.1
-               , data-default == 0.5.3
-               , bytestring   == 0.10.4.0
+               , bytestring   == 0.10.6.0
                , conduit      == 1.2.5.1
+               , data-default == 0.5.3
                , http-conduit == 2.1.8
                , network      == 2.6.2.1
                , regex-compat == 0.95.1
-               , unordered-containers == 0.2.5.1
-               , scotty       == 0.10.2
+               , scotty       == 0.11.0
                , shakespeare  == 2.0.7
                , text         == 1.2.1.3
                , transformers == 0.4.2.0
-               , wai-extra    == 3.0.12
+               , unordered-containers == 0.2.5.1
+               , wai-extra    == 3.0.14
   exposed-modules:
     App
     Fetch
