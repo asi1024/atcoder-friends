@@ -33,7 +33,7 @@ app = do
     get "/:cid" $ do
       cid <- param "cid" :: ActionM String
       str <- liftIO (fetch cid) :: ActionM ByteString
-      let st = case getJsonStr str >>= parseJson of
+      let st = case parseJson $ getJsonStr str of
                  Just dat -> filter (\x -> userScreenName x `elem` friends) dat
                  Nothing  -> error "Contest doesn't exist"
       html $ renderHtml $ $(hamletFile "./template/standings.hamlet") undefined

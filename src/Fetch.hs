@@ -2,11 +2,10 @@ module Fetch where
 
 import Data.ByteString.Lazy.Char8 (unpack)
 import Data.ByteString.Lazy.Internal (ByteString)
+import Data.List (isPrefixOf)
 
 import Network.HTTP.Conduit
 import Network
-
-import Text.Regex (mkRegex, matchRegexAll)
 
 import Url
 
@@ -18,8 +17,7 @@ fetch cid = withSocketsDo $ do
   res <- httpLbs request manager
   return $ responseBody res
 
-getJsonStr :: ByteString -> Maybe String
-getJsonStr str = case matchRegexAll reg $ concat.words $ unpack str of
-  Just (_, res, _, _) -> Just res
-  Nothing -> Nothing
-  where reg = mkRegex "\\[\\{.*\\}\\]"
+getJsonStr :: ByteString -> String
+getJsonStr str =
+  reverse $ remove "]}" $ reverse $ remove "[{" $ concat.words $ unpack str
+  where remove s = until (\x -> null x || isPrefixOf s x) tail

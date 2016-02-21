@@ -9,4 +9,4 @@ standingsUrl :: String -> String
 standingsUrl cid = endpoint cid ++ "standings"
 
 userPage :: String -> Person -> String
-userPage cid p = endpoint cid ++ "users/" ++ userName p
+userPage cid p = endpoint cid ++ "users/" ++ userScreenName p
