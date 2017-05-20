@@ -1,5 +1,3 @@
-dist
-cabal-dev
 *.o
 *.hi
 *.chi
@@ -14,3 +12,5 @@ cabal.sandbox.config
 *.prof
 *.aux
 *.hp
+
+.stack-work

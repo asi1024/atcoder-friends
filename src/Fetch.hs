@@ -12,7 +12,7 @@ import Url
 fetch :: String -> IO ByteString
 fetch cid = withSocketsDo $ do
   request' <- parseUrl $ standingsUrl cid
-  let request = request' { checkStatus = \_ _ _ -> Nothing }
+  let request = request' { checkResponse = \_ _ -> return () }
   manager <- newManager tlsManagerSettings
   res <- httpLbs request manager
   return $ responseBody res
